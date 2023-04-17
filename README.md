@@ -21,3 +21,7 @@ Have fun using it. Here's some useful shortcuts.
 - SUPER+F : chromium
 - SUPER+E : nautilus
 
+
+Oh, do not leave just now! Here is a screenshot below!
+
+![alt text](image.png)
