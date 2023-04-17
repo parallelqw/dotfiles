@@ -13,12 +13,12 @@ You can find all required packages here(Inspected PKGBUILD's by myself at 04.17.
 
 Have fun using it. Here's some useful shortcuts.
 
------------------
-SUPER+T : wezterm
-SUPER+SPACE : wofi
-SUPER+CTRL+F : Fullscreen
-SUPER+P : pseudo tiling
-SUPER+Q : Quit
-SUPER+F : chromium
-SUPER+E : nautilus
------------------
+>
+- SUPER+T : wezterm
+- SUPER+SPACE : wofi
+- SUPER+CTRL+F : Fullscreen
+- SUPER+P : pseudo tiling
+- SUPER+Q : Quit
+- SUPER+F : chromium
+- SUPER+E : nautilus
+
