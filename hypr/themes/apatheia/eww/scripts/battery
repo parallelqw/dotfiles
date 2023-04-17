@@ -1,0 +1,13 @@
+#!/bin/bash
+
+battery() {
+	cat /sys/class/power_supply/BAT1/capacity
+}
+battery_stat() {
+	cat /sys/class/power_supply/BAT1/status
+}
+
+case "$1" in
+	--bat) battery;;
+	--bat-st) battery_stat;;
+esac

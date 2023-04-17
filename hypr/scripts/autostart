@@ -1,0 +1,45 @@
+#!/usr/bin/bash
+
+# variables
+config=$HOME/.config/hypr
+scripts=$config/scripts
+
+# notification daemon
+dunst &
+
+# background
+swaybg -i /home/pfc/wallpaper.png &
+
+# mouse
+gsettings set org.gnome.desktop.interface cursor-theme 'Neutral++'
+
+# ssh agent
+eval $(ssh-agent)
+
+# battery notification
+$scripts/default/battery_notif &
+
+# screen locking when idle
+$scripts/default/idle_handler &
+
+# effects
+# $scripts/rgb &
+
+# other
+## persistent clipboard
+wl-paste --watch cliphist store &
+## make kde connect work  (source: https://www.reddit.com/r/kde/comments/l6t6qu/please_make_kdeconnectcli_work_in_headless_moded/)
+/usr/lib/kdeconnectd -platform offscreen & 
+## Gnome authentication
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+# ... this might not be necessary anymore ? idk
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
+
+# launch portals after executing the above
+# $scripts/default/launch_portals &
+gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Dark-B &
+gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark &
+gsettings set org.gnome.desktop.interface color-scheme prefer-dark &
+

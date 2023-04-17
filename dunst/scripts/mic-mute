@@ -1,0 +1,16 @@
+#!/bin/bash
+set -x
+
+mute() {
+source="$(pamixer --list-sources | grep "Family" | cut -d ' ' -f 1 | sed '1d')"
+muted="$(pamixer --source $source --get-mute)"
+if $muted; then
+  pamixer --source $source -t
+  dunstify -a "VOLUME" "UNMUTED" -i microphone-sensitivity-high-symbolic -r 2593 -u normal
+else 
+  pamixer --source $source -t
+  dunstify -a "VOLUME" "MUTED" -i microphone-sensitivity-muted-symbolic -r 2593 -u normal
+fi
+}
+
+mute
